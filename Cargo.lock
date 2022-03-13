@@ -5528,6 +5528,7 @@ dependencies = [
  "libc",
  "log",
  "memchr",
+ "mio",
  "num-traits 0.2.14",
  "plotters",
  "proc-macro2 0.4.30",
