@@ -4,8 +4,7 @@
 
 #![forbid(unsafe_code)]
 
-use clap::*;
-use move_command_line_common::files::verify_and_create_named_address_mapping;
+use clap::Parser;
 use move_compiler::{
     command_line::{self as cli},
     shared::{self, Flags, NumericalAddress},
@@ -64,8 +63,8 @@ pub fn main() -> anyhow::Result<()> {
         flags,
         named_addresses,
     } = Options::parse();
-    let named_addr_map = verify_and_create_named_address_mapping(named_addresses)?;
-    let _files = move_compiler::Compiler::from_files(source_files, dependencies, named_addr_map)
+
+    let _files = move_compiler::Compiler::new(&source_files, &dependencies)
         .set_interface_files_dir_opt(out_dir)
         .set_flags(flags)
         .check_and_report()?;

@@ -8,8 +8,7 @@ pub mod test_reporter;
 pub mod test_runner;
 
 use crate::test_runner::TestRunner;
-use clap::*;
-use move_command_line_common::files::verify_and_create_named_address_mapping;
+use clap::Parser;
 use move_compiler::{
     self,
     diagnostics::{self, codes::Severity},

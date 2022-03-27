@@ -6,7 +6,6 @@ use crate::{
     interpreter::Interpreter, loader::Resolver, native_extensions::NativeContextExtensions,
 };
 use move_binary_format::errors::{PartialVMError, PartialVMResult};
-use move_core_types::language_storage::TypeTag;
 use move_core_types::{
     account_address::AccountAddress,
     gas_schedule::CostTable,

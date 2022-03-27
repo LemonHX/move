@@ -4,8 +4,7 @@
 
 #![forbid(unsafe_code)]
 
-use clap::*;
-use move_command_line_common::files::verify_and_create_named_address_mapping;
+use clap::Parser;
 use move_compiler::{
     command_line::{self as cli},
     shared::{self, Flags, NumericalAddress},
