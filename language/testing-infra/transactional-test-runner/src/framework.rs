@@ -9,7 +9,6 @@ use crate::tasks::{
     RunCommand, SyntaxChoice, TaskCommand, TaskInput, ViewCommand,
 };
 use anyhow::{anyhow, Result};
-use clap::Parser;
 use move_binary_format::{
     binary_views::BinaryIndexedView,
     file_format::{CompiledModule, CompiledScript},
@@ -109,10 +108,10 @@ fn merge_output(left: Option<String>, right: Option<String>) -> Option<String> {
 }
 
 pub trait MoveTestAdapter<'a> {
-    type ExtraPublishArgs: Parser;
-    type ExtraRunArgs: Parser;
-    type Subcommand: Parser;
-    type ExtraInitArgs: Parser;
+    type ExtraPublishArgs: clap::Args;
+    type ExtraRunArgs: clap::Args;
+    type Subcommand: clap::Args;
+    type ExtraInitArgs: clap::Args;
 
     fn compiled_state(&mut self) -> &mut CompiledState<'a>;
     fn default_syntax(&self) -> SyntaxChoice;
